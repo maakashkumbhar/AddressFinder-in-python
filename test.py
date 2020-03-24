@@ -38,23 +38,19 @@ frame_for_Qr.grid(row=3,column=0)
 #making a function for generating the qr code For the Langitude and Latitude entered
 
 def make_qr():
-    lat=321423434
-    qr = qrcode.make(data=lat)
-    qr.save('File1.png')
-    label_file = ImageTk.PhotoImage(Image.open("File1.png"))
-    label_file = Label(frame_for_Qr,image=label_file)
-    label_file.grid(row=5,column=1)
+    Image_to_display = ImageTk.PhotoImage(Image.open("File1.png"))
+    Image_Label = Label(frame_for_Qr,image=Image_to_display)
+    Image_Label.grid(row=4,column=0,columnspan=3)
+ 
 #making a Function to display map
-#def make_map():
- #   f = folium.Map(location=[149.3723344,61.4485499,25240],zoom_start=15)
-  #  display(f)
-   # Label_for_maps = Label(frame_for_maps)
+def make_map():
+    f = folium.Map(location=[149.3723344,61.4485499],zoom_start=15)
+    f.save('result_file.html')
 #Button to display the Qr Code
 Button_to_display = Button(root,text="ClickToseeQR",command=make_qr)
 Button_to_display.grid(row =4,column=4)
-#Folium Maps Object to be Displayed 
-#f = folium.Map(location=[149.3723344,61.4485499,25240],zoom_start=15)
-#display(f)
-
+#Button to Create Map Object ina html File
+Button_to_save = Button(root,text='Get the Map',command=make_map)
+Button_to_save.grid(row=5,column=4)
 root.mainloop()
 
