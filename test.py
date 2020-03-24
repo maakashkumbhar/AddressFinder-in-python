@@ -1,7 +1,8 @@
 from tkinter import *
 from PIL import ImageTk,Image
 import qrcode
-
+import folium
+from IPython.display import display
 
 root = Tk()
 root.title("Address Finder")
@@ -27,7 +28,7 @@ frame_for_maps = LabelFrame(root,text = "Map is Diplayed here",padx=20,pady=20)
 frame_for_maps.grid(row=2,column=0)
 
 ##Showing image on the Frame
-Image_to_display = ImageTk.PhotoImage(Image.open("55.jpg"))
+Image_to_display = ImageTk.PhotoImage(Image.open("File1.png"))
 Image_Label = Label(frame_for_maps,image=Image_to_display)
 Image_Label.grid(row=4,column=0,columnspan=3)
 ## Frame for Qr Code LookUp
@@ -43,7 +44,17 @@ def make_qr():
     label_file = ImageTk.PhotoImage(Image.open("File1.png"))
     label_file = Label(frame_for_Qr,image=label_file)
     label_file.grid(row=5,column=1)
+#making a Function to display map
+#def make_map():
+ #   f = folium.Map(location=[149.3723344,61.4485499,25240],zoom_start=15)
+  #  display(f)
+   # Label_for_maps = Label(frame_for_maps)
+#Button to display the Qr Code
 Button_to_display = Button(root,text="ClickToseeQR",command=make_qr)
 Button_to_display.grid(row =4,column=4)
+#Folium Maps Object to be Displayed 
+#f = folium.Map(location=[149.3723344,61.4485499,25240],zoom_start=15)
+#display(f)
+
 root.mainloop()
 
